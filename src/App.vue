@@ -123,7 +123,7 @@ const statuses = ref([
 ]);
 
 onMounted(() => {
-  ProductService.getProductsMini().then((data) => (products.value = data));
+  ProductService.getProductsOther().then((data) => (products.value = data));
 });
 
 const addNewRow = () => {
