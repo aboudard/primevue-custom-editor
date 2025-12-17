@@ -1,4 +1,44 @@
 export const ProductService = {
+    getProductsDataOther() {
+        return [
+            {
+                id: '1000',
+                code: 'f230fh0g3',
+                name: 'Bamboo Watch',
+                description: 'Product Description',
+                image: 'bamboo-watch.jpg',
+                price: 65,
+                category: 'Accessories',
+                quantity: 24,
+                inventoryStatus: 'INSTOCK',
+                rating: 5,
+                champs: [
+                    {
+                        id: 12,
+                        valeur: 'Truc'
+                    }
+                ]
+            },
+            {
+                id: '1001',
+                code: 'nvklal433',
+                name: 'Black Watch',
+                description: 'Product Description',
+                image: 'black-watch.jpg',
+                price: 72,
+                category: 'Accessories',
+                quantity: 61,
+                inventoryStatus: 'INSTOCK',
+                rating: 4,
+                champs: [
+                    {
+                        id: 12,
+                        valeur: 'Machin'
+                    }
+                ]
+            },
+        ]
+    },
         getProductsData() {
             return [
                 {
@@ -1204,6 +1244,10 @@ export const ProductService = {
 
         getProductsSmall() {
             return Promise.resolve(this.getProductsData().slice(0, 10));
+        },
+
+        getProductsOther() {
+            return Promise.resolve(this.getProductsDataOther());
         },
 
         getProducts() {
