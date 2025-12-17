@@ -61,12 +61,12 @@
         <template #body="{ data, field, editorInitCallback }">
           <Button
             @click="onEditMode(editorInitCallback)"
-            label="edit"
+            icon="pi pi-pencil" severity="secondary" rounded
             size="small"
           />
           <Button
             @click="onDeleteMode(data, field)"
-            label="delete"
+            icon="pi pi-trash" severity="danger" rounded
             size="small"
           />
         </template>
@@ -80,13 +80,13 @@
               data.price === ''
             "
             severity="secondary"
-            label="save"
+            icon="pi pi-check" rounded
             size="small"
           />
           <Button
             @click="onCancelMode(editorCancelCallback, data)"
             severity="secondary"
-            label="cancel"
+            icon="pi pi-times" rounded
             size="small"
           />
         </template>
@@ -106,6 +106,12 @@
         label="Validate"
       />
     </div>
+  </div>
+  <div>
+    Products: {{ products }}
+  </div>
+  <div>
+    EditingRows: {{ editingRows }}
   </div>
 </template>
 
