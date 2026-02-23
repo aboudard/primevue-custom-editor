@@ -13,6 +13,20 @@
           <span>{{ data[field] }}</span>
         </template>
       </Column>
+      <Column
+        v-for="col of columns"
+        :key="col.field"
+        :field="col.field"
+        :header="col.header"
+        :style="col.style"
+      >
+        <template #body="{ data, field }">
+          {{ data[field].valeur }}
+        </template>
+        <template #editor="{ data, field }">
+          <InputText v-model="data[field].valeur" fluid />
+        </template>
+      </Column>
       <Column field="name" header="Name" style="width: 20%">
         <template #editor="{ data, field }">
           <InputText v-model="data[field]" fluid />
@@ -121,6 +135,10 @@ const statuses = ref([
   { label: "Low Stock", value: "LOWSTOCK" },
   { label: "Out of Stock", value: "OUTOFSTOCK" },
 ]);
+const columns = [
+  { field: "codei18n", header: "Code" },
+  { field: "libellei18n", header: "Libelle" },
+];
 
 onMounted(() => {
   ProductService.getProductsOther().then((data) => (products.value = data));
@@ -134,6 +152,8 @@ const addNewRow = () => {
     name: "",
     inventoryStatus: "",
     price: null,
+    codei18n: { id: 12, name: "code", valeur: "Truc" },
+    libellei18n: { id: 13, name: "libelle", valeur: "Machin" },
   };
 
   // Track this as a new product
